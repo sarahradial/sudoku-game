@@ -1,0 +1,26 @@
+Labor Division
+Barakah Quader 
+level buttons methods | undo button methods | home page setup | user manual
+Creating the different level buttons involved making sure that the buttons popped up after “Play Game” was clicked and disappeared after the level was selected to display the board. The button with the different levels on it needed to be called in ButtonListener so that when it was called, it would set the number of items that that particular level would reveal. Easier levels reveal more numbers than harder levels. I then had to write a method that returned the selected level difficulty so that it could be accessed by Emily and Sarah to create the board. 
+The undo button was the trickiest part for me and I received some debugging help from Sarah. For the undo button, I used LinkedStack so that the user could undo the action that they created as many times as they wanted (an array would limit the number of undos the user could have) until there was nothing else to undo. For this button, I had to save each of the values that the user entered and the coordinates at which the value was entered. Each time the user clicked the undo button, the latest value entered and its coordinates would be popped from the LinkedStack and update the board. I would then peek at the stack to look at the new top value and index and update it with that accordingly. 
+I also help set up the home page with Emily and Sarah. This involved creating the panel and the different buttons, its locations, and figuring out the layout. 
+Lastly, Emily and I worked on writing up the user manual, in which we explained different parts of the program with screenshots of the game. 
+
+Emily Wang
+JPanel border layout setup | instructions button |  undo button GUI | check method | generate values method | ColorPlace | user manual |
+I created the basic JPanel BorderLayout for the main menu.  I researched some other features, like JLayeredPane and GridLayout, but BorderLayout was the easiest to modify and maintain several features across the game, like the PlayGame and Instructions button.
+For the instructions button, I researched JOptionPane to create a popup window with the instructions.  For the Undo button, I had to make sure it only displayed after the user selected a game mode and difficulty level by modifying the InputListener.
+I created the check method that would be used to generate the values and check the user’s input for accuracy.  I did this by creating arrays and entering the values for the current row, column, and grid, and then calling a private checkForRepeats to check for repeating values.
+From the check method, I was able to create the constructor that randomly generated a certain number of values and display them on the board.
+For the ColorPlace class, I took the original NumberPlace and modified the code so that it would use Color objects instead of numbers.  I created an instance variable array to hold 9 different Color objects in the corresponding index values, and based on the user input I set the background of the JTextFields to the corresponding color.
+I took screenshots of the game and used it to create a panel-by-panel visual guide to the game.
+
+Sarah Yan
+JTextField setup | User-Interface Interactions | Number Place images w/ photoshop | general debugging 
+When we started programming the actual game component (not just setting up the menu and home screen), it was difficult to obtain user input via JButtons. I researched and found more information about JTextFields and multilayering of JPanels. JTextField can also set their background and foreground color. For easy readability and usability, I alternated the color  light gray and white - for the 3 by 3 boxes. I applied this new knowledge to the rest of the Home java class. I first generated the whole JTextField.
+
+For the User_Interface Interactions, I modified the ButtonListener and InputListener so that they would perform their desired tasks. The ButtonListener needed to be modified so that the layering of JPanel and the levelDifficulty would be correctly assigned via user’s choice. The InputListener needed to obtain the correct JTextField cell location then checks if the user input value is a valid input. If so, then the  input value is added to the linkedstack of values, the corresponding location is added to the linked stack of indexes, the corresponding color background is added to the linkedstack of colors if the value doesn’t conflict with any other number within its row, column and its 3 by 3 box. Then after this, the game checks if the user won. 
+
+I also photoshopped the Number Place title page and the Color Place panel.
+
+I helped Emily and Barakah with debugging Undo. At first, there was a general case which was causing most of the errors. So I divided the method so that it’ll solve the different cases. Unfortunately, there is one case that isn’t fixed which is when the same cell is modified in two different locations and the Undo button just resets it to a blank rather than the first modified value and color. Also, I went back to modify the commenting style into more of a Javadoc style in the NumberPlace java class.

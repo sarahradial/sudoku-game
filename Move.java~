@@ -1,0 +1,41 @@
+/* CS 230 Final Project
+ * Primary Contributors: Barakah Quader, Emily Wang, Sarah Yan
+ * 
+ * Notes:
+ * Move.java contains the Move objects for any user moves 
+ */
+
+public class Move {
+  //private instance vars
+  private final int [] coords;
+  private final String oldValue;
+  private final String newValue;
+  private final Color oldColor;
+  private final Color newColor;
+  
+  //constructor
+  public Move(int [] c, String oldVal, String newVal, Color oldC, Color newC){
+    coords = c;
+    oldValue = oldVal;
+    newValue = newVal;
+    oldColor = oldC;
+    newColor = newC;
+  }
+  
+  //getter methods
+  public int [] getCoords(){
+    return coords;
+  }
+  public String getOldValue(){
+    return oldValue;
+  }
+  public String getNewValue(){
+    return newValue;
+  }
+  public Color getOldColor(){
+    return oldColor;
+  }
+  public Color getNewColor(){
+    return newColor;
+  }
+}
